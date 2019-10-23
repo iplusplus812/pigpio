@@ -7,12 +7,12 @@ rpin.writeSync(0);
 gpin.writeSync(0);
 
 var interval = setInterval(() => {
-    var rValue = rpin.readSync() > 0 ? 0 : 255;
+    var rValue = (rpin.readSync() == 0) ? 255 : 0;
     rpin.write(rValue,() => {
         console.log("Changed R to : " + rValue);
     });
 
-    var gValue = gpin.readSync() > 0 ? 0: 255;
+    var gValue = (gpin.readSync() == 0) ? 255: 0;
     gpin.write(gValue,() => {
         console.log("Changed G to : " + gValue);
     });
