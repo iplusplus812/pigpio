@@ -4,12 +4,12 @@ var rpin = new Gpio(0,'out');
 var gpin = new Gpio(1,'out');
 
 var interval = setInterval(() => {
-    var rValue = (rpin.readSync() + 1) % 2;
+    var rValue = (rpin.readSync() + 255) % 2;
     rpin.write(rValue,() => {
         console.log("Changed R to : " + rValue);
     });
 
-    var gValue = (gpin.readSync() + 1) % 2;
+    var gValue = (gpin.readSync() + 255) % 2;
     gpin.write(gValue,() => {
         console.log("Changed G to : " + gValue);
     });
