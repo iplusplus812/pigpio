@@ -22,6 +22,7 @@ process.on('SIGINT',function(){
     rpin.unexport();
 
     gpin.writeSync(0);
+    gpin.unexport();
     console.log("Bye,bye!");
     process.exit();
 })
