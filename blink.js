@@ -1,22 +1,22 @@
-var onoff = require('onoff');
-var Gpio = onoff.Gpio;
+import { Gpio as _Gpio } from 'onoff';
+var Gpio = _Gpio;
 var rpin = new Gpio(0,'out');
 var gpin = new Gpio(1,'out');
 
-var interval = setInterval(function(){
+var interval = setInterval(() => {
     var rValue = (rpin.readSync() + 1) % 2;
-    rpin.write(rValue,function(){
+    rpin.write(rValue,() => {
         console.log("Changed R to : " + rValue);
     });
 
     var gValue = (gpin.readSync() + 1) % 2;
-    gpin.write(gValue,function(){
+    gpin.write(gValue,() => {
         console.log("Changed G to : " + gValue);
     });
 
 },2000);
 
-process.on('SIGINT',function(){
+process.on('SIGINT',() => {
     clearInterval(interval);
     rpin.writeSync(0);
     rpin.unexport();
