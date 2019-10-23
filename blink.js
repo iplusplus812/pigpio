@@ -1,5 +1,5 @@
-import { Gpio as _Gpio } from 'onoff';
-var Gpio = _Gpio;
+var onoff = require('onoff');
+var Gpio = onoff.Gpio;
 var rpin = new Gpio(0,'out');
 var gpin = new Gpio(1,'out');
 
