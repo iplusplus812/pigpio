@@ -25,4 +25,4 @@ process.on('SIGINT',() => {
     gpin.unexport();
     console.log("Bye,bye!");
     process.exit();
-})
+});
