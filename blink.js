@@ -3,8 +3,11 @@ var Gpio = onoff.Gpio;
 var rpin = new Gpio(0,'out');
 var gpin = new Gpio(1,'out');
 
+rpin.writeSync(0);
+gpin.writeSync(0);
+
 var interval = setInterval(() => {
-    var rValue = rpin.readSync() > 0 ? 0: 255;
+    var rValue = rpin.readSync() > 0 ? 0 : 255;
     rpin.write(rValue,() => {
         console.log("Changed R to : " + rValue);
     });
